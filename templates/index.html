@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Laptop Price Prediction Model</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+
+     <table style="border: 1px black;">
+    <tr><th>Company No</th><th>Index of company</th></tr>
+    <tr><td>Lenovo	</td><td>1</td></tr>
+    <tr><td>HP		</td><td>2</td></tr>
+    <tr><td>ASUS		</td><td>3</td></tr>
+    <tr><td>Dell	</td><td>4</td></tr>
+</table>
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="1" placeholder="Enter company" required="required" />
+        <input type="text" name="2" placeholder="Enter Ram(gb)" required="required" />
+		      <input type="text" name="3" placeholder="Enter SSD (gb)" required="required" />
+           <input type="text" name="4" placeholder="Enter Graphics(gb)" required="required" />
+          
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
